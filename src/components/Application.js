@@ -6,6 +6,7 @@ import DayList from "./DayList";
 import Appointment from "../components/Appointment"
 import getAppointmentsForDay from "../helpers/selectors"
 import getInterview from "../helpers/interviewSelector"
+import getInterviewersByDay from "../helpers/getInterviewersByDaySelector"
 
 export default function Application(props) {
   const [ state, setState ] = useState({
@@ -23,23 +24,31 @@ export default function Application(props) {
   ]).then((all) => {
     setState(prev => ({ days: all[0].data, appointments: all[1].data, interviewers: all[2].data }))
   })
-  }, [] );
+  }, [])
+  
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
 
-  const setDay = day => setState({ ...state, day });
+  const setDay = (day) => setState({ ...state, day });
   // const setDays = days => setState(prev => ({ ...prev, days }));
   const appointments = getAppointmentsForDay(state, state.day);
-  // const interviewersForDay = getInterviewersForDay(state, state.day);
+  const interviewersByDay = getInterviewersByDay(state, state.day);
   const appointmentList = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
 
-  return (
-    <Appointment
-      key={appointment.id}
-      id={appointment.id}
-      time={appointment.time}
-      interview={interview}
-    />
-  );
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+        interviewersByDay={interviewersByDay}
+        bookInterview={bookInterview}
+        onEdit={"onEdit"}
+        onDelete={"onDelete"}
+      />
+    );
   });
 
   return (
