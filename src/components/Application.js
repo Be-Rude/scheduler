@@ -27,20 +27,28 @@ export default function Application(props) {
   }, [])
   
   function bookInterview(id, interview) {
-    console.log(id, interview);
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview },
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment,
-    };
-    setState({
-      ...state,
-      appointments,
-    });
-  }
+    // console.log(id, interview);
+    return axios.put(`api/appointments/${id}`, { id, interview })
+      .then(response => {
+        console.log(response);
+        
+        const appointment = {
+          ...state.appointments[id],
+          interview: { ...interview }
+        };
+        const appointments = {
+          ...state.appointments,
+          [id]: appointment
+        };
+        setState({
+          ...state,
+          appointments,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+      }
 
   const setDay = (day) => setState({ ...state, day });
   // const setDays = days => setState(prev => ({ ...prev, days }));
