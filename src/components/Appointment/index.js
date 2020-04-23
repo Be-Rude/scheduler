@@ -8,6 +8,7 @@ import Form from "./Form"
 import Status from "./Status"
 import useVisualMode from "hooks/useVisualMode"
 import Confirm from "./Confirm";
+import Error from "./Error";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
@@ -15,6 +16,9 @@ const CREATE = "FORM";
 const SAVING = "SAVING";
 const CONFIRM = "CONFIRM";
 const DELETE = "DELETE";
+const EDIT = "EDIT";
+const ERROR_DELETE = "ERROR_DELETE";
+const ERROR_SAVE = "ERROR_SAVE"
 
 
 export default function Appointment(props) {
@@ -32,11 +36,11 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
       .then(() => {
-      transition(SHOW);
-      // .catch((err) => {
-      //     transition(ERROR_SAVE, true);
-      //   });
-    })
+        transition(SHOW)
+      })
+      .catch(err => {
+          transition(ERROR_SAVE, true);
+        });
   }
   
   function confirmDelete() {
@@ -45,11 +49,20 @@ export default function Appointment(props) {
 
   function deleteappt() {
     const interview = {};
-    transition(DELETE);
+    transition(DELETE, true);
     props.cancelInterview(props.id, interview)
       .then(() => {
-      transition(EMPTY)
-    })
+        transition(EMPTY)
+        })
+          .catch(err => {
+            transition(ERROR_DELETE, true);
+          })
+        
+  }
+
+  function editAppt() {
+    console.log(props.interview)
+    transition(EDIT);
   }
   
   return (
@@ -61,6 +74,7 @@ export default function Appointment(props) {
           <Show
             student={props.interview.student}
             interviewer={props.interview.interviewer.name}
+            onEdit={editAppt}
             onDelete={confirmDelete}
           />
         )}
@@ -85,6 +99,27 @@ export default function Appointment(props) {
           <Confirm
             onDeleteConfirm={deleteappt}
             onDeleteCancel={back}
+          />
+        )}
+        {mode === EDIT && (
+          <Form
+            name={props.interview.student}
+            interviewer={props.interview.interviewer.id}
+            interviewers={props.interviewersByDay}
+            onSave={save}
+            onCancel={back}
+          />
+        )}
+        {mode === ERROR_SAVE && (
+          <Error
+            message="Could not Save appointment."
+            onErrorClose={back}
+        />
+        )}
+        {mode === ERROR_DELETE && (
+          <Error
+            message="Could not cancel appointment."
+            onErrorClose={back}
           />
         )}
       </article>
