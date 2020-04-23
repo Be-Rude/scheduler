@@ -13,7 +13,7 @@ export default function getInterviewersByDay(state, day) {
       for (let apptVal of apptVals) {
         results.push(state.interviewers[apptVal])
       }
-      console.log(results)
+      // console.log(results)
        return results;
     }
   }

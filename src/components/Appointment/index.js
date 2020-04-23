@@ -61,7 +61,7 @@ export default function Appointment(props) {
   }
 
   function editAppt() {
-    console.log(props.interview)
+    // console.log(props.interview)
     transition(EDIT);
   }
   
@@ -83,6 +83,7 @@ export default function Appointment(props) {
             interviewers={props.interviewersByDay}
             onSave={save}
             onCancel={back}
+            change={true}
           />
         )}
         {mode === SAVING && (
@@ -93,6 +94,7 @@ export default function Appointment(props) {
         {mode === DELETE && (
           <Status
             message="Deleting"
+            change={true}
           />
         )}
         {mode === CONFIRM && (
@@ -108,6 +110,7 @@ export default function Appointment(props) {
             interviewers={props.interviewersByDay}
             onSave={save}
             onCancel={back}
+            change={false}
           />
         )}
         {mode === ERROR_SAVE && (
