@@ -86,22 +86,10 @@ export default function Appointment(props) {
             change={true}
           />
         )}
-        {mode === SAVING && (
-        <Status
-        message="Saving"
-        />
-        )}
-        {mode === DELETE && (
-          <Status
-            message="Deleting"
-            change={true}
-          />
-        )}
+        {mode === SAVING && <Status message="Saving" />}
+        {mode === DELETE && <Status message="Deleting" change={true} />}
         {mode === CONFIRM && (
-          <Confirm
-            onDeleteConfirm={deleteappt}
-            onDeleteCancel={back}
-          />
+          <Confirm onDeleteConfirm={deleteappt} onDeleteCancel={back} />
         )}
         {mode === EDIT && (
           <Form
@@ -114,16 +102,10 @@ export default function Appointment(props) {
           />
         )}
         {mode === ERROR_SAVE && (
-          <Error
-            message="Could not Save appointment."
-            onErrorClose={back}
-        />
+          <Error message="Could not Save appointment." onErrorClose={back} />
         )}
         {mode === ERROR_DELETE && (
-          <Error
-            message="Could not cancel appointment."
-            onErrorClose={back}
-          />
+          <Error message="Could not cancel appointment." onErrorClose={back} />
         )}
       </article>
     </>
