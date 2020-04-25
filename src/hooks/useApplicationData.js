@@ -32,10 +32,9 @@ export default function useApplicationData(props) {
   }, [])
  
   function bookInterview(id, interview) {
-    return axios.put(`/api/appointments/${id}`, { id, interview })
+    return axios.put(`api/appointments/${id}`, { id, interview })
       .then(response => {
-        console.log(response);
-        
+        // console.log(response);
         const appointment = {
           ...state.appointments[id],
           interview: { ...interview }
@@ -70,7 +69,7 @@ export default function useApplicationData(props) {
     .catch(err => {
       console.log(err);
     })
-    
+ 
   }
 
   // const setDays = (days) => setState((prev) => ({ ...prev, days }));

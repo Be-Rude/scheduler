@@ -6,7 +6,7 @@ const fixtures = {
       name: "Monday",
       appointments: [1, 2],
       interviewers: [1, 2],
-      spots: 1,
+      spots: 0,
     },
     {
       id: 2,
@@ -14,6 +14,13 @@ const fixtures = {
       appointments: [3, 4],
       interviewers: [3, 4],
       spots: 1,
+    },
+    {
+      id: 3,
+      name: "Wednesday",
+      appointments: [3, 4],
+      interviewers: [3, 4],
+      spots: 2,
     },
   ],
   appointments: {
@@ -84,9 +91,9 @@ export default {
     }
   }),
 
-  put: jest.fn((url) => {
-    const id = 1
-    if (url === `/api/appointments/${id}`) {
+  put: jest.fn((url,) => {
+    const id = 2
+    if (url === `api/appointments/${id}`) {
       return Promise.resolve({
         status: 204,
         statusText: "No Content"
@@ -96,10 +103,12 @@ export default {
   }),
 
   delete: jest.fn((url) => {
-    if (url === "/api/appointments") {
+    const id = 2;
+    if (url === `api/appointments/${id}`) {
+      // fixtures.days[0].spots = 2
       return Promise.resolve({
-        status: 200,
-        statusText: "OK",
+        status: 204,
+        statusText: "No Content",
       });
       /* Resolve appointments data */
     }
