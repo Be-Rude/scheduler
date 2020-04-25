@@ -68,7 +68,7 @@ export default function Appointment(props) {
   return (
     <>
       <Header time={props.time} />
-      <article className="appointment">
+      <article className="appointment" data-testid="appointment">
         {mode === EMPTY && <Empty onAdd={(onClick) => transition(CREATE)} />}
         {mode === SHOW && (
           <Show
@@ -83,7 +83,6 @@ export default function Appointment(props) {
             interviewers={props.interviewersByDay}
             onSave={save}
             onCancel={back}
-            change={true}
           />
         )}
         {mode === SAVING && <Status message="Saving" />}
@@ -98,7 +97,6 @@ export default function Appointment(props) {
             interviewers={props.interviewersByDay}
             onSave={save}
             onCancel={back}
-            change={false}
           />
         )}
         {mode === ERROR_SAVE && (
