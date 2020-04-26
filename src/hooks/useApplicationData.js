@@ -50,9 +50,6 @@ export default function useApplicationData(props) {
           appointments,
         });
       })
-        .catch(err => {
-          console.log(err);
-        });
       }
 
   function cancelInterview(id, interview) {
@@ -62,10 +59,6 @@ export default function useApplicationData(props) {
           setState((prev) => ({ ...prev, days: response.data }));
         });
       })
-    .catch(err => {
-      console.log(err);
-    })
- 
   }
 
   const setDay = (day) => setState({ ...state, day });
