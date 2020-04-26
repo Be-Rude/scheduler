@@ -31,6 +31,7 @@ There are 5 Interview spots per day, from 12pm to 5pm.
 
 !["This is the Home screen, showing appointments for the selected day"](https://github.com/Be-Rude/scheduler/blob/master/docs/Appointment%20List%20for%20Day.png?raw=true)
 
+##
 
 ## Features:
 
@@ -44,6 +45,8 @@ This will open up the appointment form. Add the Student name, select desired int
 ### Edit Appointment Details
 
 Simply Click on the 'edit' button in the lower right corner of the appointment card (which will appear when you hover over the appointment card) - this will open the form and allow you to make any necessary changes.
+
+!["Edit Appointment"](https://github.com/Be-Rude/scheduler/blob/master/docs/Edit%20Form.png?raw=true)
 
 ### Delete Appointment
 
