@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Performs api calls to db, and adds/deletes appointments from db. Returns state to Application component.
+
 export default function useApplicationData(props) {
   const [state, setState] = useState({
     day: "Monday",
@@ -56,7 +58,6 @@ export default function useApplicationData(props) {
   function cancelInterview(id, interview) {
     return axios.delete(`api/appointments/${id}`, { interview })
       .then(response => {
-        console.log(response)
         axios.get("/api/days").then((response) => {
           setState((prev) => ({ ...prev, days: response.data }));
         });

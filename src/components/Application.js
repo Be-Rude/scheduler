@@ -8,6 +8,7 @@ import getInterview from "../helpers/interviewSelector"
 import getInterviewersByDay from "../helpers/getInterviewersByDaySelector"
 import useApplicationData from "../hooks/useApplicationData"
 
+//Receives state from useApplicationData component, and returns DaysList & Appointment data to src/index.js to be rendered.
 export default function Application(props) {
   const {
     state,

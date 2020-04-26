@@ -20,7 +20,7 @@ const EDIT = "EDIT";
 const ERROR_DELETE = "ERROR_DELETE";
 const ERROR_SAVE = "ERROR_SAVE"
 
-
+//Appointment determines correct mode for component and returns to Application to be rendered.
 export default function Appointment(props) {
 
   const { mode, transition, back } = useVisualMode(
@@ -34,12 +34,12 @@ export default function Appointment(props) {
     }
     transition(SAVING);
     props.bookInterview(props.id, interview)
-      .then(() => {
-        transition(SHOW)
-      })
-      .catch(err => {
-          transition(ERROR_SAVE, true);
-        });
+    .then(() => {
+      transition(SHOW)
+    })
+    .catch(err => {
+      transition(ERROR_SAVE, true);
+    });
   }
   
   function confirmDelete() {
@@ -50,13 +50,12 @@ export default function Appointment(props) {
     const interview = {};
     transition(DELETE, true);
     props.cancelInterview(props.id, interview)
-      .then(() => {
-        transition(EMPTY)
-        })
-          .catch(err => {
-            transition(ERROR_DELETE, true);
-          })
-        
+    .then(() => {
+      transition(EMPTY)
+    })
+    .catch(err => {
+      transition(ERROR_DELETE, true);
+    })    
   }
 
   function editAppt() {
@@ -106,5 +105,4 @@ export default function Appointment(props) {
       </article>
     </>
   );
-  
 }
