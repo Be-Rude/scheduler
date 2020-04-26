@@ -16,14 +16,10 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
   
-  // console.log("state ", state);
-  // console.log(state.day);
-  
 
   const appointmentsList = getAppointmentsForDay(state, state.day);
   const interviewersByDay = getInterviewersByDay(state, state.day);
   const appointmentList = appointmentsList.map((appointment) => {
-    // console.log(appointment);
     
 
     return (
@@ -48,7 +44,7 @@ export default function Application(props) {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-        <nav className="sidebar__menu" data-testid="day">
+        <nav className="sidebar__menu" >
           <DayList days={state.days} day={state.day} setDay={setDay} />
         </nav>
         <img
