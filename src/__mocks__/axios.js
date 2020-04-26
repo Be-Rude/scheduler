@@ -6,21 +6,21 @@ const fixtures = {
       name: "Monday",
       appointments: [1, 2],
       interviewers: [1, 2],
-      spots: 0,
+      spots: 2,
     },
     {
       id: 2,
       name: "Tuesday",
       appointments: [3, 4],
       interviewers: [3, 4],
-      spots: 1,
+      spots: 0,
     },
     {
       id: 3,
       name: "Wednesday",
       appointments: [3, 4],
       interviewers: [3, 4],
-      spots: 2,
+      spots: 1,
     },
   ],
   appointments: {
@@ -94,6 +94,7 @@ export default {
   put: jest.fn((url,) => {
     const id = 2
     if (url === `api/appointments/${id}`) {
+      fixtures.days[0].spots = 1;
       return Promise.resolve({
         status: 204,
         statusText: "No Content"
