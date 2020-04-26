@@ -29,7 +29,7 @@ Interview Scheduler is an application that you can use to keep track of Intervie
 
 There are 5 Interview spots per day, from 12pm to 5pm.
 
-!["This is the Home screen, showing appointments for the selected day"](url)
+!["This is the Home screen, showing appointments for the selected day"](https://github.com/Be-Rude/scheduler/blob/master/docs/Appointment%20List%20for%20Day.png?raw=true)
 
 
 ## Features:
