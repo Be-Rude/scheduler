@@ -58,5 +58,7 @@ To delete an appointment, click on the 'delete' button in the lower right corner
 
 When the day is full, and all appointment spots are booked, the day will be greyed out and will display "no spots remaining". You will not be able to book any more appointments, unless you delete one or more to open up spots.
 
+##
 
+I hope you enjoy Interview Scheduler! Please feel free to send me any feedback or feature requests.
 
