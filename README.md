@@ -39,7 +39,7 @@ There are 5 Interview spots per day, from 12pm to 5pm.
 Create New Appointment - Click on the + add button on any available appointment spot.
 This will open up the appointment form. Add the Student name, select desired interviewer, then click 'save'.
 
-!["New appointment form"](url)
+!["New appointment form"](https://github.com/Be-Rude/scheduler/blob/master/docs/Create%20new%20appointment%20form.png?raw=true)
 
 ### Edit Appointment Details
 
@@ -49,7 +49,7 @@ Simply Click on the 'edit' button in the lower right corner of the appointment c
 
 To delete an appointment, click on the 'delete' button in the lower right corner of the appointment card (which will appear when you hover over the appointment card) - a confirmation window will appear, select 'confirm' to delete the appointment.
 
-!["Delete confirmation window"](url)
+!["Delete confirmation window"](https://github.com/Be-Rude/scheduler/blob/master/docs/Day%20Full%20-%20no%20appointments%20available.png?raw=true)
 
 ### Day Full
 
