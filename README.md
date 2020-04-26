@@ -22,13 +22,15 @@ npm test
 npm run storybook
 ```
 
-### About Interview Scheduler
+
+## About Interview Scheduler
 
 Interview Scheduler is an application that you can use to keep track of Interview appointments for the week.
 
 There are 5 Interview spots per day, from 12pm to 5pm.
 
 !["This is the Home screen, showing appointments for the selected day"](url)
+
 
 ## Features:
 
