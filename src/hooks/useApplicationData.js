@@ -50,7 +50,7 @@ export default function useApplicationData(props) {
           appointments,
         });
       })
-      }
+    }
 
   function cancelInterview(id, interview) {
     return axios.delete(`api/appointments/${id}`, { interview })
@@ -59,7 +59,7 @@ export default function useApplicationData(props) {
           setState((prev) => ({ ...prev, days: response.data }));
         });
       })
-  }
+   }
 
   const setDay = (day) => setState({ ...state, day });
 
